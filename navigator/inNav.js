@@ -7,7 +7,7 @@ const Stack = createNativeStackNavigator();
 const Home = () => {
   return (
     <View>
-      <Text>home</Text>
+      <Text>home screen</Text>
     </View>
   );
 };

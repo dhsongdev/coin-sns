@@ -12,7 +12,14 @@ export default function OutNav() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Join" component={Join} />
+      <Stack.Screen
+        options={() => ({
+          presentation: 'modal',
+          animation: 'slide_from_bottom',
+        })}
+        name="Join"
+        component={Join}
+      />
     </Stack.Navigator>
   );
 }
