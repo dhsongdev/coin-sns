@@ -1,9 +1,16 @@
-import React, { useEffect } from 'react';
-import auth from '@react-native-firebase/auth';
+import React, { useEffect, useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+
+//components
+import InNav from './navigator/inNav';
+import OutNav from './navigator/outNav';
 
 export default function App() {
-  useEffect(() => {
-    console.log(auth().currentUser);
-  }, []);
-  return null;
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  return (
+    <NavigationContainer>
+      {loggedIn ? <InNav /> : <OutNav />}
+    </NavigationContainer>
+  );
 }
