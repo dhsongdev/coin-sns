@@ -38,7 +38,7 @@ export default function Login({ navigation: { navigate } }) {
           setAuthLoading(false);
           return;
         }
-        if (error.code === 'auth/invalid-email') {
+        if (error.code === 'auth/wrong-password') {
           Alert.alert(
             'Check your email or password, please.',
             'Worng password!'
