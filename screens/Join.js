@@ -29,6 +29,7 @@ export default function Join({ navigation: { goBack } }) {
             'Check your email, please.',
             'That email address is already in use!'
           );
+          setAuthLoading(false);
           return;
         }
         if (error.code === 'auth/invalid-email') {
@@ -36,6 +37,7 @@ export default function Join({ navigation: { goBack } }) {
             'Check your email, please.',
             'That email address is invalid!'
           );
+          setAuthLoading(false);
           return;
         }
         if (error.code === 'auth/weak-password') {
@@ -43,10 +45,9 @@ export default function Join({ navigation: { goBack } }) {
             'Check your password, please.',
             'Use stronger password by using 특수기호 or numbers'
           );
+          setAuthLoading(false);
           return;
         }
-        setAuthLoading(false);
-        goBack();
       });
   };
 

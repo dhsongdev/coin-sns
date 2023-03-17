@@ -1,16 +1,9 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Stack = createNativeStackNavigator();
+import Home from '../screens/Home';
 
-const Home = () => {
-  return (
-    <View>
-      <Text>home screen</Text>
-    </View>
-  );
-};
+const Stack = createNativeStackNavigator();
 
 export default function InNav() {
   return (

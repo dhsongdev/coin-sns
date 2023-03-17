@@ -6,22 +6,27 @@ import auth from '@react-native-firebase/auth';
 import InNav from './navigator/InNav';
 import OutNav from './navigator/OutNav';
 
+//context
+import userContext from './userContext';
+
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState();
 
   useEffect(() => {
-    console.log(user);
     const subscriber = auth().onAuthStateChanged((user) => {
       setUser(user);
+      if (!user) setLoggedIn(false);
     });
     if (user) setLoggedIn(true);
     return subscriber;
   }, [user]);
 
   return (
-    <NavigationContainer>
-      {loggedIn ? <InNav /> : <OutNav />}
-    </NavigationContainer>
+    <userContext.Provider value={user}>
+      <NavigationContainer>
+        {loggedIn ? <InNav /> : <OutNav />}
+      </NavigationContainer>
+    </userContext.Provider>
   );
 }
